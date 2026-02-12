@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxtide | Curated In Luxury</title>
+
+<style>
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background:#f8f8f8;
+color:#333;
+}
+
+/* Header */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+header h1{
+color:#ff2e63;
+margin:0;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+nav a:hover{
+color:#ff2e63;
+}
+
+/* Hero Section */
+.hero{
+background:linear-gradient(to right, #ff2e63, #ff9a8b);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h2{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.shop-btn{
+background:white;
+color:#ff2e63;
+padding:12px 30px;
+text-decoration:none;
+font-weight:bold;
+border-radius:25px;
+}
+
+.shop-btn:hover{
+background:#000;
+color:white;
+}
+
+/* Categories */
+.section{
+padding:60px 8%;
+text-align:center;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+}
+
+.category{
+background:white;
+padding:30px 15px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+font-weight:bold;
+}
+
+.category:hover{
+background:#ff2e63;
+color:white;
+}
+
+/* Products */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.product h3{
+font-size:16px;
+}
+
+.price{
+color:#ff2e63;
+font-weight:bold;
+margin:10px 0;
+}
+
+.whatsapp{
+display:inline-block;
+padding:8px 15px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:20px;
+font-size:14px;
+}
+
+.whatsapp:hover{
+background:#000;
+}
+
+/* Footer */
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Luxtide</h1>
+<nav>
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Upgrade Your Fashion Game</h2>
+<p>Shop trendy shoes, handbags, watches & accessories for men and women.</p>
+<a href="#shop" class="shop-btn">Shop Now</a>
+</section>
+
+<section class="section">
+<h2>Shop By Category</h2>
+
+<div class="categories">
+<div class="category">👟 Shoes</div>
+<div class="category">👜 Handbags</div>
+<div class="category">⌚ Watches</div>
+<div class="category">🕶 Glasses</div>
+<div class="category">👞 Footwear</div>
+</div>
+</section>
+
+<section id="shop" class="section">
+<h2>Trending Now</h2>
+
+<div class="products">
+
+<div class="product">
+<h3>Luxury Sneakers</h3>
+<p class="price">₦45,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+</div>
+
+<div class="product">
+<h3>Designer Handbag</h3>
+<p class="price">₦65,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+</div>
+
+<div class="product">
+<h3>Classic Wristwatch</h3>
+<p class="price">₦55,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="section">
+<h2>Contact Us</h2>
+<p>📞 08036349302</p>
+<p>Instagram: @LUXTIDE_1</p>
+</section>
+
+<footer>
+<p>© 2026 Luxtide | Curated In Luxury</p>
+</footer>
+
+</body>
+</html>
