@@ -5,28 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxtide | Luxury Fashion Store</title>
 
-<div class="product">
-
-<div class="slider-container">
-<div class="slider-track">
-
-<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg">
-<img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg">
-<img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg">
-
-</div>
-
-<button class="prev" onclick="moveSlide(this, -1)">‹</button>
-<button class="next" onclick="moveSlide(this, 1)">›</button>
-</div>
-
-<div class="product-content">
-<h3>New Balance Sneakers (Unisex 40–45)</h3>
-<p class="price">₦58,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
-</div>
-
-</div>
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f6f6f6;
+color:#333;
+}
 
 /* Top Bar */
 .top-bar{
@@ -202,6 +187,37 @@ text-align:center;
 padding:30px;
 margin-top:40px;
 }
+/* Jumia Style Product Gallery */
+
+.product-gallery{
+padding:10px;
+}
+
+.main-image{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:6px;
+}
+
+.thumbnail-container{
+display:flex;
+gap:8px;
+margin-top:8px;
+}
+
+.thumbnail-container img{
+width:60px;
+height:60px;
+object-fit:cover;
+cursor:pointer;
+border:2px solid transparent;
+border-radius:4px;
+}
+
+.thumbnail-container img.active-thumb{
+border:2px solid #000;
+}
 </style>
 </head>
 
@@ -250,27 +266,46 @@ Free Delivery Within Lagos | Order via WhatsApp
 </ul>
 </div>
 
-<div class="product">
+<div class="products-area">
 
-<div class="slider-container">
-<div class="slider-track">
-
-<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg">
-<img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg">
-<img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg">
-
+<div class="top-shop-bar">
+<div>Showing Latest Products</div>
+<select>
+<option>Sort by latest</option>
+<option>Sort by price</option>
+</select>
 </div>
 
-<button class="prev" onclick="moveSlide(this, -1)">‹</button>
-<button class="next" onclick="moveSlide(this, 1)">›</button>
+<div class="products">
+
+<div class="product">
+
+<div class="product-gallery">
+
+<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg" 
+class="main-image" 
+id="mainImage1">
+
+<div class="thumbnail-container">
+<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg"
+class="active-thumb"
+onclick="changeImage(this, 'mainImage1')">
+
+<img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg"
+onclick="changeImage(this, 'mainImage1')">
+
+<img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg"
+onclick="changeImage(this, 'mainImage1')">
+</div>
+
 </div>
 
 <div class="product-content">
 <h3>New Balance Sneakers (Unisex 40–45)</h3>
 <p class="price">₦58,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
-</div>
-
+<a class="whatsapp" href="https://wa.me/2348036349302">
+Order on WhatsApp
+</a>
 </div>
 
 </div>
