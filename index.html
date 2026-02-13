@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxtide | Luxury Fashion Store</title>
+<title>Luxury Sneakers</title>
 
 <style>
 body{
@@ -13,158 +12,33 @@ background:#f6f6f6;
 color:#333;
 }
 
-/* Top Bar */
-.top-bar{
-background:#000;
-color:white;
-text-align:center;
-padding:8px;
-font-size:14px;
-}
-
-/* Header */
-header{
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 8%;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-
-.logo{
-height:45px;
-}
-
-.search{
-flex:1;
-margin:0 30px;
-}
-
-.search input{
-width:100%;
-padding:8px 12px;
-border:1px solid #ddd;
-border-radius:4px;
-}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-/* Navigation Categories */
-.nav-categories{
-background:white;
-padding:10px 8%;
-display:flex;
-gap:25px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
-}
-
-.nav-categories a{
-text-decoration:none;
-color:#333;
-font-size:14px;
-}
-
-/* Banner */
-.banner{
-background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-url("IMG_0454.jpeg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-color:white;
-padding:120px 8%;
-text-align:center;
-}
-
-.banner h1{
-font-size:50px;
-font-weight:700;
-letter-spacing:2px;
-margin-bottom:15px;
-}
-
-/* Shop Layout */
-.shop-container{
-display:flex;
-padding:40px 8%;
-gap:30px;
-}
-
-/* Sidebar */
-.sidebar{
-width:230px;
-background:white;
+.container{
 padding:20px;
-border-radius:6px;
-}
-
-.sidebar h3{
-margin-top:0;
-}
-
-.sidebar ul{
-list-style:none;
-padding:0;
-}
-
-.sidebar li{
-margin-bottom:12px;
-font-size:14px;
-cursor:pointer;
-}
-
-/* Product Area */
-.products-area{
-flex:1;
-}
-
-.top-shop-bar{
 display:flex;
-justify-content:space-between;
-margin-bottom:20px;
+justify-content:center;
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-gap:25px;
-}
-
-.product{
-background:white;
-border-radius:6px;
+.product-card{
+background:#fff;
+width:320px;
+border-radius:8px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 overflow:hidden;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-transition:0.3s;
 }
 
-.product:hover{
-transform:translateY(-4px);
-}
-
-/* Jumia Style Gallery */
-.product-gallery{
-padding:10px;
-}
-
+/* Main Image */
 .main-image{
 width:100%;
-height:260px;
+height:300px;
 object-fit:cover;
-border-radius:6px;
-margin-bottom:10px;
 }
 
+/* Thumbnail Section */
 .thumbnail-container{
 display:flex;
+justify-content:center;
 gap:8px;
+padding:10px;
 }
 
 .thumbnail-container img{
@@ -176,171 +50,84 @@ border:2px solid transparent;
 border-radius:4px;
 }
 
-.thumbnail-container img.active-thumb{
-border:2px solid #000;
+.thumbnail-container img.active{
+border:2px solid black;
 }
 
-.product-content{
+/* Product Info */
+.product-info{
 padding:15px;
+text-align:center;
 }
 
-.product h3{
-font-size:14px;
-margin:0 0 8px;
+.product-info h3{
+margin:10px 0 5px;
+font-size:18px;
 }
 
 .price{
+color:#000;
 font-weight:bold;
 margin-bottom:10px;
 }
 
-.whatsapp{
+.whatsapp-btn{
 display:inline-block;
-padding:7px 12px;
-background:#25D366;
+background:black;
 color:white;
+padding:10px 15px;
 text-decoration:none;
-border-radius:20px;
-font-size:13px;
-}
-
-/* Footer */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
+border-radius:4px;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">
-Free Delivery Within Lagos | Order via WhatsApp
-</div>
+<div class="container">
 
-<header>
-<img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo">
+<div class="product-card">
 
-<div class="search">
-<input type="text" placeholder="Search products...">
-</div>
-
-<nav>
-<a href="#">Account</a>
-<a href="#">Cart</a>
-</nav>
-</header>
-
-<div class="nav-categories">
-<a href="#">Shoes</a>
-<a href="#">Handbags</a>
-<a href="#">Watches</a>
-<a href="#">Glasses</a>
-<a href="#">Footwear</a>
-</div>
-
-<div class="banner">
-<h1>New Collection 2026</h1>
-<p>Luxury fashion for men & women</p>
-</div>
-
-<div class="shop-container">
-
-<div class="sidebar">
-<h3>Categories</h3>
-<ul>
-<li>Shoes</li>
-<li>Handbags</li>
-<li>Watches</li>
-<li>Glasses</li>
-<li>Footwear</li>
-</ul>
-</div>
-
-<div class="products-area">
-
-<div class="top-shop-bar">
-<div>Showing Latest Products</div>
-<select>
-<option>Sort by latest</option>
-<option>Sort by price</option>
-</select>
-</div>
-
-<div class="products">
-
-<!-- JUMIA STYLE PRODUCT -->
-<div class="product">
-
-<div class="product-gallery">
-
+<!-- MAIN IMAGE -->
 <img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg"
 class="main-image"
-id="mainImage1">
+id="mainImage">
 
+<!-- THUMBNAILS -->
 <div class="thumbnail-container">
 <img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg"
-class="active-thumb"
-onclick="changeImage(this, 'mainImage1')">
+class="active"
+onclick="changeImage(this)">
 
 <img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg"
-onclick="changeImage(this, 'mainImage1')">
+onclick="changeImage(this)">
 
 <img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg"
-onclick="changeImage(this, 'mainImage1')">
+onclick="changeImage(this)">
 </div>
 
-</div>
-
-<div class="product-content">
+<!-- PRODUCT INFO -->
+<div class="product-info">
 <h3>New Balance Sneakers (Unisex 40–45)</h3>
 <p class="price">₦28,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">
+<a href="https://wa.me/2348036349302" class="whatsapp-btn">
 Order on WhatsApp
 </a>
 </div>
 
 </div>
 
-<!-- OTHER PRODUCTS -->
-<div class="product">
-<img src="product2.jpg">
-<div class="product-content">
-<h3>Designer Handbag</h3>
-<p class="price">₦65,000</p>
-<a class="whatsapp" href="#">Order</a>
 </div>
-</div>
-
-<div class="product">
-<img src="product3.jpg">
-<div class="product-content">
-<h3>Classic Wristwatch</h3>
-<p class="price">₦55,000</p>
-<a class="whatsapp" href="#">Order</a>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
-<footer>
-©️ 2026 Luxtide | Curated In Luxury
-</footer>
 
 <script>
-function changeImage(thumbnail, mainId){
-let mainImage = document.getElementById(mainId);
-mainImage.src = thumbnail.src;
+function changeImage(element){
+document.getElementById("mainImage").src = element.src;
 
-let thumbnails = thumbnail.parentElement.querySelectorAll("img");
-thumbnails.forEach(img => img.classList.remove("active-thumb"));
+let thumbnails = document.querySelectorAll(".thumbnail-container img");
+thumbnails.forEach(img => img.classList.remove("active"));
 
-thumbnail.classList.add("active-thumb");
+element.classList.add("active");
 }
 </script>
 
