@@ -3,35 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxtide | Curated In Luxury</title>
+<title>Luxtide | Shop</title>
 
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI', sans-serif;
-background:#f8f8f8;
+font-family:Arial, sans-serif;
+background:#f5f5f5;
 color:#333;
 }
 
 /* Header */
 header{
+background:white;
+padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:1000;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
-header h1{
-color:#ff2e63;
-margin:0;
-}
-  .logo{
-height:60px;
+.logo{
+height:50px;
 }
 
 nav a{
@@ -42,93 +35,106 @@ font-weight:600;
 }
 
 nav a:hover{
-color:#ff2e63;
+color:#000;
 }
 
-/* Hero Section */
-.hero{
-background:#000;
-color:white;
-padding:80px 20px;
-text-align:center;
+/* Main Layout */
+.shop-container{
+display:flex;
+padding:40px 8%;
+gap:30px;
 }
 
-.hero h2{
-font-size:40px;
+/* Sidebar */
+.sidebar{
+width:220px;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.sidebar h3{
+margin-top:0;
+font-size:18px;
 margin-bottom:15px;
 }
 
-.hero p{
-font-size:18px;
-margin-bottom:25px;
+.sidebar ul{
+list-style:none;
+padding:0;
 }
 
-.shop-btn{
-background:white;
-color:#ff2e63;
-padding:12px 30px;
-text-decoration:none;
-font-weight:bold;
-border-radius:25px;
+.sidebar li{
+margin-bottom:10px;
+cursor:pointer;
 }
 
-.shop-btn:hover{
-background:#000;
-color:white;
-}
-
-/* Categories */
-.section{
-padding:60px 8%;
-text-align:center;
-}
-
-.categories{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-}
-
-.category{
-background:white;
-padding:30px 15px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
+.sidebar li:hover{
+color:#000;
 font-weight:bold;
 }
 
-.category:hover{
-background:#ff2e63;
-color:white;
+/* Products Area */
+.products-area{
+flex:1;
 }
 
-/* Products */
+/* Top Bar */
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.top-bar select{
+padding:8px;
+}
+
+/* Product Grid */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+gap:25px;
 }
 
 .product{
 background:white;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.product:hover{
+transform:translateY(-5px);
+}
+
+.product img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+.product-content{
 padding:15px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 .product h3{
-font-size:16px;
+font-size:15px;
+margin:0 0 8px;
+font-weight:600;
 }
 
 .price{
-color:#ff2e63;
 font-weight:bold;
-margin:10px 0;
+margin-bottom:10px;
 }
 
 .whatsapp{
 display:inline-block;
-padding:8px 15px;
+padding:8px 14px;
 background:#25D366;
 color:white;
 text-decoration:none;
@@ -137,12 +143,12 @@ font-size:14px;
 }
 
 .whatsapp:hover{
-background:#000;
+background:#128C7E;
 }
 
 /* Footer */
 footer{
-background:#222;
+background:#111;
 color:white;
 text-align:center;
 padding:20px;
@@ -157,63 +163,73 @@ margin-top:40px;
 <img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo">
 <nav>
 <a href="#">Home</a>
-<a href="#shop">Shop</a>
-<a href="#contact">Contact</a>
+<a href="#">Shop</a>
+<a href="#">Contact</a>
 </nav>
 </header>
 
-<section class="hero">
-<h2>Upgrade Your Fashion Game</h2>
-<p>Shop trendy shoes, handbags, watches & accessories for men and women.</p>
-<a href="#shop" class="shop-btn">Shop Now</a>
-</section>
+<div class="shop-container">
 
-<section class="section">
-<h2>Shop By Category</h2>
-
-<div class="categories">
-<div class="category">👟 Shoes</div>
-<div class="category">👜 Handbags</div>
-<div class="category">⌚ Watches</div>
-<div class="category">🕶 Glasses</div>
-<div class="category">👞 Footwear</div>
+<!-- Sidebar -->
+<div class="sidebar">
+<h3>Categories</h3>
+<ul>
+<li>👟 Shoes</li>
+<li>👜 Handbags</li>
+<li>⌚ Watches</li>
+<li>🕶 Glasses</li>
+<li>👞 Footwear</li>
+</ul>
 </div>
-</section>
 
-<section id="shop" class="section">
-<h2>Trending Now</h2>
+<!-- Products Section -->
+<div class="products-area">
+
+<div class="top-bar">
+<div>Showing 1–6 of 6 results</div>
+<select>
+<option>Sort by latest</option>
+<option>Sort by price: low to high</option>
+<option>Sort by price: high to low</option>
+</select>
+</div>
 
 <div class="products">
 
 <div class="product">
+<img src="shoe1.jpg">
+<div class="product-content">
 <h3>Luxury Sneakers</h3>
 <p class="price">₦45,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
 </div>
 
 <div class="product">
+<img src="shoe2.jpg">
+<div class="product-content">
 <h3>Designer Handbag</h3>
 <p class="price">₦65,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
 </div>
 
 <div class="product">
+<img src="shoe3.jpg">
+<div class="product-content">
 <h3>Classic Wristwatch</h3>
 <p class="price">₦55,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
 </div>
 
 </div>
-</section>
+</div>
 
-<section id="contact" class="section">
-<h2>Contact Us</h2>
-<p>📞 08036349302</p>
-<p>Instagram: @LUXTIDE_1</p>
-</section>
+</div>
 
 <footer>
-<p>© 2026 Luxtide | Curated In Luxury</p>
+© 2026 Luxtide | Curated In Luxury
 </footer>
 
 </body>
