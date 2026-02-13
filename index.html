@@ -1,158 +1,280 @@
-// FULL PROJECT SETUP INSTRUCTIONS + CORE FILES
-// This project recreates the LOOK & FEEL of sojoee.com for LUxTIDE
-// Orders redirect to WhatsApp
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxtide | Luxury Fashion Store</title>
 
-// =============================
-// 1. CREATE PROJECT
-// =============================
-// npx create-next-app@latest luxtide
-// cd luxtide
-// npm install -D tailwindcss postcss autoprefixer
-// npx tailwindcss init -p
-
-// =============================
-// 2. tailwind.config.js
-// =============================
-export default {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        heading: ['Playfair Display', 'serif'],
-        body: ['Inter', 'sans-serif'],
-      },
-    },
-  },
-  plugins: [],
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f6f6f6;
+color:#333;
 }
 
-// =============================
-// 3. app/globals.css
-// =============================
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  @apply font-body bg-white text-black;
+/* Top Bar */
+.top-bar{
+background:#000;
+color:white;
+text-align:center;
+padding:8px;
+font-size:14px;
 }
 
-// =============================
-// 4. components/Navbar.jsx
-// =============================
-export default function Navbar() {
-  return (
-    <nav className="flex justify-between items-center px-10 py-6">
-      <img src="/logo.png" className="h-8" alt="Luxtide" />
-      <div className="space-x-8 uppercase text-sm tracking-wide">
-        <a href="/">Home</a>
-        <a href="/shop">Shop</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  )
+/* Header */
+header{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
-// =============================
-// 5. components/Hero.jsx
-// =============================
-export function Hero() {
-  return (
-    <section className="h-[80vh] bg-[url('/hero.jpg')] bg-cover bg-center flex items-center px-16">
-      <div>
-        <h1 className="font-heading text-5xl mb-4">Curated in Luxury</h1>
-        <p className="mb-6 max-w-md">Modern unisex fashion designed for timeless elegance.</p>
-        <a
-          href="/shop"
-          className="border border-black px-6 py-3 uppercase tracking-wide hover:bg-black hover:text-white transition"
-        >
-          Shop Now
-        </a>
-      </div>
-    </section>
-  )
+.logo{
+height:45px;
 }
 
-// =============================
-// 6. components/ProductCard.jsx
-// =============================
-export function ProductCard({ product }) {
-  return (
-    <div className="group">
-      <img src={product.image} className="mb-3" />
-      <h3 className="text-sm">{product.name}</h3>
-      <p className="text-sm">₦{product.price}</p>
-      <a
-        href={`https://wa.me/2348036349302?text=Hello%20I%20want%20to%20order%20${product.name}`}
-        className="block mt-2 text-xs underline"
-      >
-        Order via WhatsApp
-      </a>
-    </div>
-  )
+.search{
+flex:1;
+margin:0 30px;
 }
 
-// =============================
-// 7. app/page.jsx (HOME)
-// =============================
-import Navbar from "../components/Navbar"
-import { Hero } from "../components/Hero"
-import { ProductCard } from "../components/ProductCard"
-
-const products = [
-  { name: "Luxury Shirt", price: "45,000", image: "/p1.jpg" },
-  { name: "Tailored Trousers", price: "60,000", image: "/p2.jpg" },
-  { name: "Classic Footwear", price: "80,000", image: "/p3.jpg" },
-]
-
-export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <section className="px-16 py-20">
-        <h2 className="font-heading text-3xl mb-10">Featured Pieces</h2>
-        <div className="grid grid-cols-3 gap-10">
-          {products.map((p, i) => (
-            <ProductCard key={i} product={p} />
-          ))}
-        </div>
-      </section>
-
-      <footer id="contact" className="px-16 py-20 border-t">
-        <h3 className="font-heading text-2xl mb-4">Contact</h3>
-        <p>Instagram: @luxtide_</p>
-        <p>TikTok: @luxtide_</p>
-        <p>WhatsApp: 08036349302</p>
-      </footer>
-    </>
-  )
+.search input{
+width:100%;
+padding:8px 12px;
+border:1px solid #ddd;
+border-radius:4px;
 }
 
-// =============================
-// 8. app/shop/page.jsx
-// =============================
-import Navbar from "../../components/Navbar"
-import { ProductCard } from "../../components/ProductCard"
-
-export default function Shop() {
-  return (
-    <>
-      <Navbar />
-      <section className="px-16 py-20 grid grid-cols-4 gap-10">
-        <ProductCard product={{ name: "Luxury Shirt", price: "45,000", image: "/p1.jpg" }} />
-        <ProductCard product={{ name: "Tailored Trousers", price: "60,000", image: "/p2.jpg" }} />
-        <ProductCard product={{ name: "Classic Footwear", price: "80,000", image: "/p3.jpg" }} />
-      </section>
-    </>
-  )
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
+font-weight:600;
 }
 
-// =============================
-// 9. DEPLOY
-// =============================
-// Push to GitHub
-// Deploy on https://vercel.com (recommended)
+/* Navigation Categories */
+.nav-categories{
+background:white;
+padding:10px 8%;
+display:flex;
+gap:25px;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+}
+
+.nav-categories a{
+text-decoration:none;
+color:#333;
+font-size:14px;
+}
+
+/* Banner */
+.banner{
+background:#000;
+color:white;
+padding:80px 8%;
+text-align:center;
+}
+
+.banner h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+/* Shop Layout */
+.shop-container{
+display:flex;
+padding:40px 8%;
+gap:30px;
+}
+
+/* Sidebar */
+.sidebar{
+width:230px;
+background:white;
+padding:20px;
+border-radius:6px;
+}
+
+.sidebar h3{
+margin-top:0;
+}
+
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar li{
+margin-bottom:12px;
+font-size:14px;
+cursor:pointer;
+}
+
+/* Product Area */
+.products-area{
+flex:1;
+}
+
+.top-shop-bar{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+gap:25px;
+}
+
+.product{
+background:white;
+border-radius:6px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.product:hover{
+transform:translateY(-4px);
+}
+
+.product img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.product-content{
+padding:15px;
+}
+
+.product h3{
+font-size:14px;
+margin:0 0 8px;
+}
+
+.price{
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.whatsapp{
+display:inline-block;
+padding:7px 12px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:20px;
+font-size:13px;
+}
+
+/* Footer */
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+Free Delivery Within Lagos | Order via WhatsApp
+</div>
+
+<header>
+<img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo">
+
+<div class="search">
+<input type="text" placeholder="Search products...">
+</div>
+
+<nav>
+<a href="#">Account</a>
+<a href="#">Cart</a>
+</nav>
+</header>
+
+<div class="nav-categories">
+<a href="#">Shoes</a>
+<a href="#">Handbags</a>
+<a href="#">Watches</a>
+<a href="#">Glasses</a>
+<a href="#">Footwear</a>
+</div>
+
+<div class="banner">
+<h1>New Collection 2026</h1>
+<p>Luxury fashion for men & women</p>
+</div>
+
+<div class="shop-container">
+
+<div class="sidebar">
+<h3>Categories</h3>
+<ul>
+<li>Shoes</li>
+<li>Handbags</li>
+<li>Watches</li>
+<li>Glasses</li>
+<li>Footwear</li>
+</ul>
+</div>
+
+<div class="products-area">
+
+<div class="top-shop-bar">
+<div>Showing 1–6 of 6 results</div>
+<select>
+<option>Sort by latest</option>
+<option>Sort by price</option>
+</select>
+</div>
+
+<div class="products">
+
+<div class="product">
+<img src="product1.jpg">
+<div class="product-content">
+<h3>Luxury Sneakers</h3>
+<p class="price">₦45,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
+</div>
+
+<div class="product">
+<img src="product2.jpg">
+<div class="product-content">
+<h3>Designer Handbag</h3>
+<p class="price">₦65,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
+</div>
+
+<div class="product">
+<img src="product3.jpg">
+<div class="product-content">
+<h3>Classic Wristwatch</h3>
+<p class="price">₦55,000</p>
+<a class="whatsapp" href="https://wa.me/2348036349302">Order</a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<footer>
+© 2026 Luxtide | Curated In Luxury
+</footer>
+
+</body>
+</html>
