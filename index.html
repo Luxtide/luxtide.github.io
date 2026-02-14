@@ -4,375 +4,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxtide | Luxury Fashion Store</title>
-
 <style>
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#f6f6f6;
-color:#333;
-}
+/* Base Styles */
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: Arial, sans-serif; background:#f6f6f6; color:#333; line-height:1.5; }
 
 /* Top Bar */
-.top-bar{
-background:#000;
-color:white;
-text-align:center;
-padding:8px;
-font-size:14px;
-}
+.top-bar { background:#000; color:#fff; text-align:center; padding:8px; font-size:14px; }
 
 /* Header */
-header{
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 8%;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
+header {
+  background:#fff; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;
+  padding:15px 8%; box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
-
-.logo{
-height:45px;
-}
-
-.search{
-flex:1;
-margin:0 30px;
-}
-
-.search input{
-width:100%;
-padding:8px 12px;
-border:1px solid #ddd;
-border-radius:4px;
-}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
+header .logo { height:45px; }
+header .search { flex:1; margin:10px 20px; }
+header .search input { width:100%; padding:8px 12px; border:1px solid #ddd; border-radius:4px; }
+header nav a { margin-left:20px; text-decoration:none; color:#333; font-weight:600; }
 
 /* Navigation Categories */
-.nav-categories{
-background:white;
-padding:10px 8%;
-display:flex;
-gap:25px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
+.nav-categories {
+  background:#fff; padding:10px 8%; display:flex; flex-wrap:wrap; gap:25px; border-top:1px solid #eee; border-bottom:1px solid #eee;
 }
-
-.nav-categories a{
-text-decoration:none;
-color:#333;
-font-size:14px;
-}
+.nav-categories a { text-decoration:none; color:#333; font-size:14px; transition: color 0.2s; }
+.nav-categories a:hover { color:#000; }
 
 /* Banner */
-.banner{
-background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-url("IMG_0454.jpeg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-color:white;
-padding:120px 8%;
-text-align:center;
+.banner {
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("IMG_0454.jpeg");
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  color:#fff; padding:120px 8% 80px; text-align:center;
 }
-
-.banner h1{
-font-size:50px;
-font-weight:700;
-letter-spacing:2px;
-margin-bottom:15px;
-}
+.banner h1 { font-size:48px; font-weight:700; letter-spacing:2px; margin-bottom:15px; }
+.banner p { font-size:18px; }
 
 /* Shop Layout */
-.shop-container{
-display:flex;
-padding:40px 8%;
-gap:30px;
-}
+main.shop-container { display:flex; flex-wrap:wrap; padding:40px 8%; gap:30px; }
 
 /* Sidebar */
-.sidebar{
-width:230px;
-background:white;
-padding:20px;
-border-radius:6px;
-}
-
-.sidebar h3{
-margin-top:0;
-}
-
-.sidebar ul{
-list-style:none;
-padding:0;
-}
-
-.sidebar li{
-margin-bottom:12px;
-font-size:14px;
-cursor:pointer;
-}
-
-.sidebar a{
-text-decoration:none;
-color:#333;
-font-size:14px;
-display:block;
-}
-
-.sidebar a:hover{
-color:#000;
-font-weight:600;
-}
+aside.sidebar { width:230px; background:#fff; padding:20px; border-radius:6px; flex-shrink:0; }
+aside.sidebar h3 { margin-bottom:15px; }
+aside.sidebar ul { list-style:none; }
+aside.sidebar li { margin-bottom:12px; }
+aside.sidebar a { text-decoration:none; color:#333; display:block; font-size:14px; transition: all 0.2s; }
+aside.sidebar a:hover { color:#000; font-weight:600; }
 
 /* Product Area */
-.products-area{
-flex:1;
-}
-
-.top-shop-bar{
-display:flex;
-justify-content:space-between;
-margin-bottom:20px;
-}
+section.products-area { flex:1; min-width:280px; }
+.top-shop-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px; }
+.top-shop-bar select { padding:6px 10px; border-radius:4px; border:1px solid #ccc; }
 
 /* Products Grid */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-gap:25px;
-}
+.products { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:25px; }
 
 /* Product Card */
-.product{
-background:white;
-border-radius:6px;
-overflow:hidden;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-transition:0.3s;
+.product {
+  background:#fff; border-radius:6px; overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;
+  position:relative;
 }
+.product:hover { transform:translateY(-4px); box-shadow:0 6px 15px rgba(0,0,0,0.12); }
 
-.product:hover{
-transform:translateY(-4px);
+/* Quick View Overlay */
+.product .quick-view {
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.5); color:#fff; display:flex; justify-content:center; align-items:center;
+  opacity:0; transition:opacity 0.3s; font-weight:600; cursor:pointer; font-size:16px;
 }
+.product:hover .quick-view { opacity:1; }
 
 /* Main Image */
-.main-image{
-width:100%;
-height:260px;
-object-fit:cover;
-}
+.product img.main-image { width:100%; height:260px; object-fit:cover; }
 
 /* Thumbnails */
-.thumbnail-container{
-display:flex;
-justify-content:center;
-gap:8px;
-padding:10px;
+.thumbnail-container { display:flex; justify-content:center; gap:8px; padding:10px; }
+.thumbnail-container img {
+  width:55px; height:55px; object-fit:cover; cursor:pointer; border:2px solid transparent; border-radius:4px; transition:border 0.2s;
 }
-
-.thumbnail-container img{
-width:55px;
-height:55px;
-object-fit:cover;
-cursor:pointer;
-border:2px solid transparent;
-border-radius:4px;
-}
-
-.thumbnail-container img.active{
-border:2px solid #000;
-}
+.thumbnail-container img.active { border:2px solid #000; }
 
 /* Product Content */
-.product-content{
-padding:15px;
+.product-content { padding:15px; }
+.product-content h3 { font-size:15px; margin-bottom:8px; }
+.price { font-weight:bold; margin-bottom:10px; }
+.whatsapp {
+  display:inline-block; padding:7px 12px; background:#25D366; color:white; text-decoration:none; border-radius:20px; font-size:13px; transition: background 0.2s;
 }
-
-.product h3{
-font-size:14px;
-margin:0 0 8px;
-}
-
-.price{
-font-weight:bold;
-margin-bottom:10px;
-}
-
-.whatsapp{
-display:inline-block;
-padding:7px 12px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:20px;
-font-size:13px;
-}
+.whatsapp:hover { background:#1ebe57; }
 
 /* Footer */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
+footer { background:#111; color:white; text-align:center; padding:30px; margin-top:40px; }
+
+/* Responsive */
+@media(max-width:992px){
+  header { flex-direction:column; gap:10px; }
+  .search { order:2; width:100%; }
+  nav { order:3; }
+}
+@media(max-width:768px){
+  main.shop-container{ flex-direction:column; padding:20px; }
+  aside.sidebar { width:100%; margin-bottom:20px; }
+  .banner h1 { font-size:36px; }
+  .banner p { font-size:16px; }
 }
 </style>
 </head>
-
 <body>
 
-<div class="top-bar">
-Free Delivery Within Lagos | Order via WhatsApp
-</div>
+<div class="top-bar">Free Delivery Within Lagos | Order via WhatsApp</div>
 
 <header>
-<img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo">
-
-<div class="search">
-<input type="text" placeholder="Search products...">
-</div>
-
-<nav>
-<a href="#">Account</a>
-<a href="#">Cart</a>
-</nav>
+  <img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo" alt="Luxtide Logo">
+  <div class="search"><input type="text" placeholder="Search products..." aria-label="Search products"></div>
+  <nav><a href="#">Account</a><a href="#">Cart</a></nav>
 </header>
 
 <div class="nav-categories">
-<a href="shoes.html">Shoes</a>
-<a href="handbags.html">Handbags</a>
-<a href="watches.html">Watches</a>
-<a href="glasses.html">Glasses</a>
-<a href="footwear.html">Footwear</a>
+  <a href="shoes.html">Shoes</a>
+  <a href="handbags.html">Handbags</a>
+  <a href="watches.html">Watches</a>
+  <a href="glasses.html">Glasses</a>
+  <a href="footwear.html">Footwear</a>
 </div>
 
 <div class="banner">
-<h1>New Collection 2026</h1>
-<p>Luxury fashion for men & women</p>
+  <h1>New Collection 2026</h1>
+  <p>Luxury fashion for men & women</p>
 </div>
 
-<div class="shop-container">
+<main class="shop-container">
+  <aside class="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      <li><a href="shoes.html">Shoes</a></li>
+      <li><a href="handbags.html">Handbags</a></li>
+      <li><a href="watches.html">Watches</a></li>
+      <li><a href="glasses.html">Glasses</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+    </ul>
+  </aside>
 
-<div class="sidebar">
-<h3>Categories</h3>
-<ul>
-<li><a href="shoes.html">Shoes</a></li>
-<li><a href="handbags.html">Handbags</a></li>
-<li><a href="watches.html">Watches</a></li>
-<li><a href="glasses.html">Glasses</a></li>
-<li><a href="footwear.html">Footwear</a></li>
-</ul>
-</div>
+  <section class="products-area">
+    <div class="top-shop-bar">
+      <div>Showing Latest Products</div>
+      <select>
+        <option>Sort by latest</option>
+        <option>Sort by price</option>
+      </select>
+    </div>
 
-<div class="products-area">
+    <div class="products">
+      <!-- NEW BALANCE -->
+      <div class="product">
+        <div class="quick-view">Quick View</div>
+        <img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg" class="main-image" id="mainImage1" alt="New Balance Sneakers">
+        <div class="thumbnail-container">
+          <img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg" class="active" onclick="changeImage(this,'mainImage1')" alt="New Balance Thumbnail 1">
+          <img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg" onclick="changeImage(this,'mainImage1')" alt="New Balance Thumbnail 2">
+          <img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg" onclick="changeImage(this,'mainImage1')" alt="New Balance Thumbnail 3">
+        </div>
+        <div class="product-content">
+          <h3>New Balance Sneakers (Unisex 40–45)</h3>
+          <p class="price">₦28,000</p>
+          <a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+        </div>
+      </div>
 
-<div class="top-shop-bar">
-<div>Showing Latest Products</div>
-<select>
-<option>Sort by latest</option>
-<option>Sort by price</option>
-</select>
-</div>
+      <!-- GIVENCHY -->
+      <div class="product">
+        <div class="quick-view">Quick View</div>
+        <img src="6b05c7c9-e5a7-4e8e-8e12-0e0679821604.jpeg" class="main-image" id="mainImage2" alt="Givenchy Sneakers">
+        <div class="thumbnail-container">
+          <img src="6b05c7c9-e5a7-4e8e-8e12-0e0679821604.jpeg" class="active" onclick="changeImage(this,'mainImage2')" alt="Givenchy Thumbnail 1">
+          <img src="93ae2e9b-d0e9-4900-b775-c612acd37369.jpeg" onclick="changeImage(this,'mainImage2')" alt="Givenchy Thumbnail 2">
+        </div>
+        <div class="product-content">
+          <h3>Givenchy Paris Sneakers (40–45)</h3>
+          <p class="price">₦27,000</p>
+          <a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+        </div>
+      </div>
 
-<div class="products">
+      <!-- TOM FORD -->
+      <div class="product">
+        <div class="quick-view">Quick View</div>
+        <img src="3f709054-ed49-42f9-9520-df7957346d11.jpeg" class="main-image" id="mainImage3" alt="Tom Ford Slide">
+        <div class="thumbnail-container">
+          <img src="3f709054-ed49-42f9-9520-df7957346d11.jpeg" class="active" onclick="changeImage(this,'mainImage3')" alt="Tom Ford Thumbnail 1">
+          <img src="d53172e2-3fcd-4b72-87c1-a2f65558b334.jpeg" onclick="changeImage(this,'mainImage3')" alt="Tom Ford Thumbnail 2">
+          <img src="eded88af-5108-42c6-b829-9ac8645c5532.jpeg" onclick="changeImage(this,'mainImage3')" alt="Tom Ford Thumbnail 3">
+        </div>
+        <div class="product-content">
+          <h3>Tom Ford Made in Italy (Men Slide 40–45)</h3>
+          <p class="price">₦40,000</p>
+          <a class="whatsapp" href="https://wa.me/2348036349302">Order on WhatsApp</a>
+        </div>
+      </div>
 
-<!-- NEW BALANCE -->
-<div class="product">
-<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg"
-class="main-image"
-id="mainImage1">
+    </div>
+  </section>
+</main>
 
-<div class="thumbnail-container">
-<img src="7eac3136-2d4f-4757-ba00-9e96e3ca8ff7.jpeg"
-class="active"
-onclick="changeImage(this,'mainImage1')">
-<img src="56f965bb-e65a-4fc0-85f2-dbb7d155a03c.jpeg"
-onclick="changeImage(this,'mainImage1')">
-<img src="25682f85-ee0a-4c48-b4ea-2d3468f346a9.jpeg"
-onclick="changeImage(this,'mainImage1')">
-</div>
-
-<div class="product-content">
-<h3>New Balance Sneakers (Unisex 40–45)</h3>
-<p class="price">₦28,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">
-Order on WhatsApp
-</a>
-</div>
-</div>
-
-<!-- GIVENCHY -->
-<div class="product">
-<img src="6b05c7c9-e5a7-4e8e-8e12-0e0679821604.jpeg"
-class="main-image"
-id="mainImage2">
-
-<div class="thumbnail-container">
-<img src="6b05c7c9-e5a7-4e8e-8e12-0e0679821604.jpeg"
-class="active"
-onclick="changeImage(this,'mainImage2')">
-<img src="93ae2e9b-d0e9-4900-b775-c612acd37369.jpeg"
-onclick="changeImage(this,'mainImage2')">
-</div>
-
-<div class="product-content">
-<h3>Givenchy Paris Sneakers (40–45)</h3>
-<p class="price">₦27,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">
-Order on WhatsApp
-</a>
-</div>
-</div>
-
-<!-- TOM FORD -->
-<div class="product">
-<img src="3f709054-ed49-42f9-9520-df7957346d11.jpeg"
-class="main-image"
-id="mainImage3">
-
-<div class="thumbnail-container">
-<img src="3f709054-ed49-42f9-9520-df7957346d11.jpeg"
-class="active"
-onclick="changeImage(this,'mainImage3')">
-<img src="d53172e2-3fcd-4b72-87c1-a2f65558b334.jpeg"
-onclick="changeImage(this,'mainImage3')">
-<img src="eded88af-5108-42c6-b829-9ac8645c5532.jpeg"
-onclick="changeImage(this,'mainImage3')">
-</div>
-
-<div class="product-content">
-<h3>Tom Ford Made in Italy (Men Slide 40–45)</h3>
-<p class="price">₦40,000</p>
-<a class="whatsapp" href="https://wa.me/2348036349302">
-Order on WhatsApp
-</a>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
-<footer>
-©️ 2026 Luxtide | Curated In Luxury
-</footer>
+<footer>©️ 2026 Luxtide | Curated In Luxury</footer>
 
 <script>
 function changeImage(element, imageId){
-document.getElementById(imageId).src = element.src;
-
-let thumbnails = element.parentElement.querySelectorAll("img");
-thumbnails.forEach(img => img.classList.remove("active"));
-
-element.classList.add("active");
+  const mainImage = document.getElementById(imageId);
+  mainImage.src = element.src;
+  element.parentElement.querySelectorAll("img").forEach(img => img.classList.remove("active"));
+  element.classList.add("active");
 }
 </script>
 
