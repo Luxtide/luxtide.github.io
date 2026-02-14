@@ -20,7 +20,8 @@ header {
 header .logo { height:45px; }
 header .search { flex:1; margin:10px 20px; }
 header .search input { width:100%; padding:8px 12px; border:1px solid #ddd; border-radius:4px; }
-header nav a { margin-left:20px; text-decoration:none; color:#333; font-weight:600; }
+header nav a { margin-left:20px; text-decoration:none; color:#333; font-weight:600; transition:color 0.2s; }
+header nav a:hover { color:#000; }
 
 /* Navigation Categories */
 .nav-categories {
@@ -116,7 +117,10 @@ footer { background:#111; color:white; text-align:center; padding:30px; margin-t
 <header>
   <img src="AD7E4167-D03E-4FD7-9E8D-A7D6EA0A832D.png" class="logo" alt="Luxtide Logo">
   <div class="search"><input type="text" placeholder="Search products..." aria-label="Search products"></div>
-  <nav><a href="#">Account</a><a href="#">Cart</a></nav>
+  <nav>
+    <a href="#">Account</a>
+    <a href="#">Cart</a>
+  </nav>
 </header>
 
 <div class="nav-categories">
@@ -133,6 +137,8 @@ footer { background:#111; color:white; text-align:center; padding:30px; margin-t
 </div>
 
 <main class="shop-container">
+
+  <!-- Sidebar Categories -->
   <aside class="sidebar">
     <h3>Categories</h3>
     <ul>
@@ -144,6 +150,7 @@ footer { background:#111; color:white; text-align:center; padding:30px; margin-t
     </ul>
   </aside>
 
+  <!-- Products Area -->
   <section class="products-area">
     <div class="top-shop-bar">
       <div>Showing Latest Products</div>
@@ -203,6 +210,7 @@ footer { background:#111; color:white; text-align:center; padding:30px; margin-t
 
     </div>
   </section>
+
 </main>
 
 <footer>©️ 2026 Luxtide | Curated In Luxury</footer>
